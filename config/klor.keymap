@@ -28,6 +28,11 @@
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
+        combo_adjust {
+            timeout-ms = <200>;
+            key-positions = <33 37>;
+            bindings = <&mo ADJUST>;
+        };
     };
 
     keymap {
@@ -104,7 +109,7 @@ display-name = "Raise";
                &kp EXCL  &kp AT_SIGN &kp HASH   &kp DOLLAR   &kp PERCENT                         &kp CARET   &kp AMPERSAND   &kp ASTERISK &kp BACKSLASH   &kp
     &trans     &kp GRAVE &kp RA(S) &trans    &trans    &kp APOSTROPHE                          &trans    &trans    &trans    &trans    &kp RA(O)  &trans
     &trans     &trans    &trans    &trans    &trans    &trans    &trans     &trans     &trans    &trans    &trans    &trans    &trans     &trans
-                                   &mo ADJUST &kp HOME  &kp END    &trans     &trans     &trans    &trans    &trans
+                                   &trans    &kp HOME  &kp END   &trans     &trans     &trans    &trans    &trans
             >;
         };
 
@@ -134,3 +139,4 @@ display-name = "Adjust";
         };
     };
 };
+,,ff q
