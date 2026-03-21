@@ -1,0 +1,38 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix_transform = &default_transform;
+    };
+
+    kscan0: kscan0 {
+        compatible = "zmk,kscan-gpio-direct";
+        label = "KSCAN";
+    };
+};
+```
+
+**`Kconfig.shield`** — add the dongle entry to your existing file:
+```
+config SHIELD_KLOR_LEFT
+    def_bool $(shields_list_contains,klor_left)
+
+config SHIELD_KLOR_RIGHT
+    def_bool $(shields_list_contains,klor_right)
+
+config SHIELD_KLOR_DONGLE
+    def_bool $(shields_list_contains,klor_dongle)
+```
+
+**`Kconfig.defconfig`** — add to your existing file:
+```
+if SHIELD_KLOR_DONGLE
+
+config ZMK_KEYBOARD_NAME
+    default "KLOR"
+
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
+
+endif
