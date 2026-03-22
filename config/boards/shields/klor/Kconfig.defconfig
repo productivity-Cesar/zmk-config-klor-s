@@ -21,22 +21,10 @@ if SHIELD_KLOR_DONGLE
 
 endif # DONGLE
 
-
-
 if SHIELD_KLOR_LEFT || SHIELD_KLOR_RIGHT
 
     config ZMK_SPLIT
         default y
-
-if SHIELD_KLOR_RIGHT
-
-    config ZMK_KEYBOARD_NAME
-        default "KLOR"
-
-    config ZMK_SPLIT_BLE_ROLE_CENTRAL
-        default n
-
-endif # RIGHT
 
 if ZMK_DISPLAY
 
@@ -47,8 +35,6 @@ if ZMK_DISPLAY
         default y
 
 endif # ZMK_DISPLAY
-
-
 
 if LVGL
 
@@ -66,6 +52,5 @@ if LVGL
     endchoice
 
 endif # LVGL
-
 
 endif # LEFT RIGHT
