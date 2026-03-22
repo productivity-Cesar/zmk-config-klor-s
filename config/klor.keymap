@@ -17,7 +17,7 @@
             tapping-term-ms = <150>;
             quick_tap_ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp>, <&kp>;0000
         };
     };
 
@@ -28,11 +28,13 @@
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
-        combo_adjust {
-            timeout-ms = <500>;
-            key-positions = <37 41>;
-            bindings = <&mo ADJUST>;
-            layers = <0>;
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        adjust_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 
