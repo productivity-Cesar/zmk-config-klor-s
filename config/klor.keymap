@@ -28,14 +28,11 @@
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
-    };
-
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <37 41>;
+            bindings = <&mo ADJUST>
+        }
     };
 
     keymap {
