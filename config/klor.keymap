@@ -30,7 +30,7 @@
         };
         combo_adjust {
             timeout-ms = <200>;
-            key-positions = <33 37>;
+            key-positions = <37 41>;
             bindings = <&mo ADJUST>;
         };
     };
@@ -106,7 +106,7 @@ display-name = "Raise";
                                  └─────────┴─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┴─────────┘ */
             bindings = <
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
-               &kp EXCL  &kp AT_SIGN &kp HASH   &kp DOLLAR   &kp PERCENT                         &kp CARET   &kp AMPERSAND   &kp ASTERISK &kp BACKSLASH   &kp
+               &kp EXCL  &kp AT_SIGN &kp HASH   &kp DOLLAR   &kp PERCENT                         &kp CARET   &kp AMPERSAND   &kp ASTERISK &kp BACKSLASH   &kp EQUAL
     &trans     &kp GRAVE &kp RA(S) &trans    &trans    &kp APOSTROPHE                          &trans    &trans    &trans    &trans    &kp RA(O)  &trans
     &trans     &trans    &trans    &trans    &trans    &trans    &trans     &trans     &trans    &trans    &trans    &trans    &trans     &trans
                                    &trans    &kp HOME  &kp END   &trans     &trans     &trans    &trans    &trans
