@@ -6,8 +6,8 @@
         display-name = "Saegewerk";
 
         keys = <
-            /* Row 0 - top row, 5+5, no outer pinky */
-            /* w    h    x     y     r   rx    ry  */
+            /* Row 0: 10 keys (no outer pinky in matrix) */
+            /* w    h     x    y   r   rx   ry */
             &key_physical_attrs 100 100  100    0   0    0    0  /* Q */
             &key_physical_attrs 100 100  200    0   0    0    0  /* W */
             &key_physical_attrs 100 100  300    0   0    0    0  /* E */
@@ -19,7 +19,8 @@
             &key_physical_attrs 100 100 1000    0   0    0    0  /* O */
             &key_physical_attrs 100 100 1100    0   0    0    0  /* P */
 
-            /* Row 1 - home row, 5+5, no outer pinky */
+            /* Row 1: 12 keys (outer pinky in matrix, broken off on saegewerk) */
+            &key_physical_attrs 100 100    0  100   0    0    0  /* trans - left outer pinky */
             &key_physical_attrs 100 100  100  100   0    0    0  /* A */
             &key_physical_attrs 100 100  200  100   0    0    0  /* S */
             &key_physical_attrs 100 100  300  100   0    0    0  /* D */
@@ -30,26 +31,33 @@
             &key_physical_attrs 100 100  900  100   0    0    0  /* K */
             &key_physical_attrs 100 100 1000  100   0    0    0  /* L */
             &key_physical_attrs 100 100 1100  100   0    0    0  /* ; */
+            &key_physical_attrs 100 100 1200  100   0    0    0  /* trans - right outer pinky */
 
-            /* Row 2 - bottom row, 5+5, no outer pinky */
+            /* Row 2: 14 keys (outer pinky + encoder positions) */
+            &key_physical_attrs 100 100    0  200   0    0    0  /* trans - left outer pinky */
             &key_physical_attrs 100 100  100  200   0    0    0  /* Z */
             &key_physical_attrs 100 100  200  200   0    0    0  /* X */
             &key_physical_attrs 100 100  300  200   0    0    0  /* C */
             &key_physical_attrs 100 100  400  200   0    0    0  /* V */
             &key_physical_attrs 100 100  500  200   0    0    0  /* B */
+            &key_physical_attrs 100 100  575  300   0    0    0  /* trans - left encoder */
+            &key_physical_attrs 100 100  625  300   0    0    0  /* trans - right encoder */
             &key_physical_attrs 100 100  700  200   0    0    0  /* N */
             &key_physical_attrs 100 100  800  200   0    0    0  /* M */
             &key_physical_attrs 100 100  900  200   0    0    0  /* , */
             &key_physical_attrs 100 100 1000  200   0    0    0  /* . */
             &key_physical_attrs 100 100 1100  200   0    0    0  /* / */
+            &key_physical_attrs 100 100 1200  200   0    0    0  /* trans - right outer pinky */
 
-            /* Thumb row - 3+3 */
+            /* Thumb row: 8 keys (4+4, outer thumbs are trans) */
+            &key_physical_attrs 100 100  200  325   0    0    0  /* trans - left outer thumb */
             &key_physical_attrs 100 100  300  325   0    0    0  /* LCTRL */
             &key_physical_attrs 100 100  400  350   0    0    0  /* LOWER */
             &key_physical_attrs 100 100  500  375   0    0    0  /* SPACE */
             &key_physical_attrs 100 100  700  375   0    0    0  /* ENTER */
             &key_physical_attrs 100 100  800  350   0    0    0  /* RAISE */
             &key_physical_attrs 100 100  900  325   0    0    0  /* BSPC */
+            &key_physical_attrs 100 100 1000  325   0    0    0  /* trans - right outer thumb */
         >;
     };
 };
