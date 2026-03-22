@@ -29,9 +29,10 @@
             bindings = <&kp ESC>;
         };
         combo_adjust {
-            timeout-ms = <200>;
+            timeout-ms = <500>;
             key-positions = <37 41>;
             bindings = <&mo ADJUST>;
+            layers = <0>;
         };
     };
 
