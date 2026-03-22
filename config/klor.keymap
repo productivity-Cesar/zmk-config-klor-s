@@ -29,6 +29,12 @@
             bindings = <&kp ESC>;
         };
 
+        combo_bootloader {
+            timeout-ms = <50>;
+            key-positions = <22 4>;
+            bindings = <&bootloader>;
+        };
+
     };
 
     keymap {
