@@ -117,28 +117,28 @@ display-name = "ADJUST";
         };
 
         extra1 {
-            status = "reserved"
+            status = "reserved";
         };
         extra2 {
-            status = "reserved"
+            status = "reserved";
         };
         extra3 {
-            status = "reserved"
+            status = "reserved";
         };
         extra4 {
-            status = "reserved"
+            status = "reserved";
         };
         extra5 {
-            status = "reserved"
+            status = "reserved";
         };
         extra6 {
-            status = "reserved"
+            status = "reserved";
         };
         extra7 {
-            status = "reserved"
+            status = "reserved";
         };
         extra8 {
-            status = "reserved"
+            status = "reserved";
         };
 
     };
