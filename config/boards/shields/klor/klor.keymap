@@ -3,10 +3,12 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define BASE   0
-#define LOWER  1
-#define RAISE  2
-#define ADJUST 3
+#define ALPHA   0
+#define NUMBERS 1
+#define SYMBOL  2
+#define SYSTEM  3
+#define GAME    4
+#define GAMEEXP 5
 
 / {
     behaviors {
@@ -18,6 +20,13 @@
             quick_tap_ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+        };
+        cad: ctrl_alt_del {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LCTRL &kp LALT>
+                     , <&macro_tap &kp DEL>
+                     , <&macro_release &kp LCTRL &kp LALT>;
         };
     };
 
@@ -35,12 +44,12 @@
 
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        base_layer {
+        alpha_layer {
 // ┌───────────────────────────────────────────────────────────┐
-label = "BASE";
+label = "ALPHA";
 // └───────────────────────────────────────────────────────────┘
-/*             ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
-               │    Q    │    W    │    E    │    R    │    T    │                    │    Y    │    U    │    I    │    O    │    P    │
+/*           ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
+             │    Q    │    W    │    E    │    R    │    T    │                    │    Y    │    U    │    I    │    O    │    P    │
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
    │ (trans) │    A    │    S    │    D    │  F/SHF  │    G    │                    │    H    │  J/SHF  │    K    │    L    │    ;    │ (trans) │
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
@@ -51,20 +60,20 @@ label = "BASE";
             bindings = <
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
                &kp Q     &kp W     &kp E     &kp R     &kp T                           &kp Y     &kp U     &kp I     &kp O     &kp P
-    &trans     &kp A     &kp S     &kp D   &hm LSHFT F &kp G                           &kp H   &hm RSHFT J &kp K     &kp L     &kp SEMI   &trans
-    &trans     &kp Z     &kp X     &kp C     &kp V     &kp B     &trans     &trans     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH   &trans
-                                   &kp LCTRL &mo LOWER &kp SPACE &trans     &trans     &kp RET   &mo RAISE &kp BSPC
+    &none     &kp A     &kp S     &kp D   &hm LSHFT F &kp G                           &kp H   &hm RSHFT J &kp K     &kp L     &kp SEMI   &none
+    &none     &kp Z     &kp X     &kp C     &kp V     &kp B     &none     &none     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH   &none
+                                   &kp LCTRL &mo LOWER &kp SPACE &none     &none     &kp RET   &mo RAISE &kp BSPC
             >;
         };
 
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        lower_layer {
+        numbers_layer {
 // ┌───────────────────────────────────────────────────────────┐
-label = "LOWER";
+label = "NUMBERS";
 // └───────────────────────────────────────────────────────────┘
-/*             ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
-               │         │         │   UP    │         │    {    │                    │    }    │    7    │    8    │    9    │    +    │
+/*           ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
+             │         │         │   UP    │         │    {    │                    │    }    │    7    │    8    │    9    │    +    │
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
    │ (trans) │         │  LEFT   │  DOWN   │  RIGHT  │    [    │                    │    ]    │    4    │    5    │    6    │    -    │ (trans) │
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
@@ -74,59 +83,151 @@ label = "LOWER";
                                  └─────────┴─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┴─────────┘ */
             bindings = <
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
-               &trans    &trans    &kp UP    &trans    &kp LBRC                        &kp RBRC  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_PLUS
-    &trans     &trans    &kp LEFT  &kp DOWN  &kp RIGHT &kp LBKT                        &kp RBKT  &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS &trans
-    &trans     &trans    &kp PG_UP &kp CAPS  &kp PG_DN &kp LPAR  &trans     &trans     &kp RPAR  &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MULTIPLY &trans
-                                   &trans    &trans    &trans    &trans     &trans     &kp DEL   &kp KP_N0 &trans
+               &none    &none    &kp UP    &none    &kp LBRC                        &kp RBRC  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_PLUS
+    &none     &none    &kp LEFT  &kp DOWN  &kp RIGHT &kp LBKT                        &kp RBKT  &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS &none
+    &none     &none    &kp PG_UP &kp CAPS  &kp PG_DN &kp LPAR  &none     &none     &kp RPAR  &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MULTIPLY &none
+                                   &none    &none    &none    &none     &none     &kp DEL   &kp KP_N0 &none
             >;
         };
 
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        raise_layer {
+        symbol_layer {
 // ┌───────────────────────────────────────────────────────────┐
-label = "RAISE";
+label = "SYMBOL";
 // └───────────────────────────────────────────────────────────┘
-/*             ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
-               │         │         │         │         │         │                    │         │         │    Ü    │         │         │
+/*           ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
+             │    !    │    @    │    #    │    $    │    %    │                    │    ^    │    &    │    *    │    |    │   ~     │
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
-   │ (trans) │    Ä    │    ß    │         │         │         │                    │         │         │         │         │    Ö    │ (trans) │
+   │ (trans) │  SHIFT  │         │         │    '    │         │                    │         │         │         │  trans  │         │ (trans) │
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-   │ (trans) │         │         │         │         │         ││(trans) ││(trans) ││         │         │         │         │         │ (trans) │
+   │ (trans) │         │   CAD   │ WIN/SUP │         │         ││(trans) ││(trans) ││         │         │         │         │         │ (trans) │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
                                  │ ADJUST  │         │         │ (trans) ││ (trans) │         │         │         │
                                  └─────────┴─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┴─────────┘ */
             bindings = <
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
-               &trans    &trans    &trans    &trans    &trans                          &trans    &trans    &kp RA(U) &trans    &trans
-    &trans     &kp RA(A) &kp RA(S) &trans    &trans    &trans                          &trans    &trans    &trans    &trans    &kp RA(O)  &trans
-    &trans     &trans    &trans    &trans    &trans    &trans    &trans     &trans     &trans    &trans    &trans    &trans    &trans     &trans
-                                   &mo ADJUST &trans  &trans    &trans     &trans     &trans    &trans    &trans
+              &kp EXCL  &kp AT   &kp HASH   &kp DLLR    &kp PRCNT                     &kp CARET  &kp AMPS  &kp ASTRK  &kp PIPE  &kp TILDE
+    &none     &kp LSHFT &none    &none      &APOSTROPHE &none                         &none      &none     &none      &trans    &none     &none
+    &none     &none     &cad     &kp LGUI   &none       &none    &none        &none   &none      &none     &none      &none     &none     &none
+                                 &mo ADJUST &kp SPACE   &none    &none        &none   &none      &none     &none
             >;
         };
 
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        adjust_layer {
+        system_layer {
 // ┌───────────────────────────────────────────────────────────┐
-label = "ADJUST";
+label = "SYSTEM";
 // └───────────────────────────────────────────────────────────┘
-/*             ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
-               │ BT CLR  │         │         │         │         │                    │         │         │         │         │ BT CLR  │
+/*           ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
+             │         │         │         │         │         │                    │         │         │         │         │         │
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
-   │ (trans) │ BT NXT  │         │         │         │         │                    │         │         │         │ BT NXT  │         │ (trans) │
+   │ (trans) │         │         │         │         │         │                    │         │         │         │         │         │ (trans) │
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-   │ (trans) │ BT PRV  │         │         │         │         ││(trans) ││(trans) ││         │         │         │         │         │ (trans) │
+   │ (trans) │         │         │         │         │   GAME  ││(trans) ││(trans) ││         │         │         │         │         │ (trans) │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
                                  │         │         │         │ (trans) ││ (trans) │         │         │         │
                                  └─────────┴─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┴─────────┘ */
             bindings = <
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
-               &bt BT_CLR &trans   &trans    &trans    &trans                          &trans    &trans    &trans    &trans    &bt BT_CLR
-    &trans     &bt BT_NXT &trans   &trans    &trans    &trans                          &trans    &trans    &trans    &bt BT_NXT &trans    &trans
-    &trans     &bt BT_PRV &trans   &trans    &trans    &trans    &trans     &trans     &trans    &trans    &trans    &trans    &trans     &trans
-                                   &trans    &trans    &trans    &trans     &trans     &trans    &trans    &trans
+               none&   &none   &none    &none    &none                           &none    &none    &none    &none    &none
+    &none      &none   &none   &none    &none    &none                           &none    &none    &none    &none    &none    &none
+    &none      &none   &none   &none    &none    &to GAME  &none         &none   &none    &none    &none    &none    &none    &none
+                               &none    &none    &none     &none         &none   &none    &none    &none    &none
             >;
+        };
+
+
+                game_layer {
+// ┌───────────────────────────────────────────────────────────┐
+label = "GAME";
+// └───────────────────────────────────────────────────────────┘
+/*           ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
+             │    1    │    2    │    3    │    4    │  TAP    │                    │         │         │         │         │         │
+   ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
+   │ (trans) │  SHIFT  │    Q    │    W    │    E    │    R    │                    │         │         │         │         │         │ (trans) │
+   ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
+   │ (trans) │   CTRL  │    A    │    S    │    D    │    F    ││(trans) ││(trans) ││         │         │         │         │         │ (trans) │
+   └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
+                                 │         │  SPACE  │         │ (trans) ││ (trans) │         │         │         │
+                                 └─────────┴─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┴─────────┘ */
+            bindings = <
+ //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
+             &kp N1      &kp N2    &kp N3    &kp N4    &sl GAMEEXP                        &none &none &none &none &none
+    &none     &kp LSHFT  &kp Q     &kp W     &kp E     &kp R                              &none &none &none &none &none &none
+    &none     &kp LCTRL  &kp A     &kp S     &kp D     &kp F     &none             &none  &none &none &none &none &none &none
+                                   &none     &kp SPACE &none     &none             &none  &none &none &none
+            >;
+        };
+
+
+                gameexp_layer {
+// ┌───────────────────────────────────────────────────────────┐
+label = "GAMEEXP";
+// └───────────────────────────────────────────────────────────┘
+/*           ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
+             │    5    │    6    │    7    │    8    │  9    │                    │         │         │         │         │         │
+   ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
+   │ (trans) │         │         │    I    │         │    0    │                    │         │         │         │         │         │ (trans) │
+   ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
+   │ (trans) │         │         │         │    G    │    M    ││(trans) ││(trans) ││         │         │         │         │         │ (trans) │
+   └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
+                                 │         │         │         │ (trans) ││ (trans) │         │         │         │
+                                 └─────────┴─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┴─────────┘ */
+            bindings = <
+ //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
+              &kp N5   &kp N6    &kp N7    &kp N8    &kp N9                             &none &none &none &none &none
+    &none     &none    &none     &kp I     &none     &kp N0                             &none &none &none &none &none &none
+    &none     &none    &none     &none     &kp G     &kp M     &none             &none  &none &none &none &none &none &none
+                                 &none     &none     &none     &none             &none  &none &none &none
+            >;
+        };
+
+        extra1 {
+            status = "reserved";
+        };
+        extra2 {
+            status = "reserved";
+        };
+        extra3 {
+            status = "reserved";
+        };
+        extra4 {
+            status = "reserved";
+        };
+        extra5 {
+            status = "reserved";
+        };
+        extra6 {
+            status = "reserved";
+        };
+        extra7 {
+            status = "reserved";
+        };
+        extra8 {
+            status = "reserved";
+        };
+        extra9 {
+            status = "reserved";
+        };
+        extra10 {
+            status = "reserved";
+        };
+        extra11 {
+            status = "reserved";
+        };
+        extra12 {
+            status = "reserved";
+        };
+        extra13 {
+            status = "reserved";
+        };
+        extra14 {
+            status = "reserved";
+        };
+        extra15 {
+            status = "reserved";
         };
     };
 };
