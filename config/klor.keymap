@@ -16,8 +16,9 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick_tap_ms = <0>;
+            tapping-term-ms = <250>;
+            require-prior-idle-ms = <100>;
+            quick_tap_ms = <100>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
@@ -84,7 +85,7 @@ display-name = "NUMBERS";
   &none     &none     &kp UP    &none     &kp LBRC                        &kp RBRC  &kp N7    &kp N8    &kp N9    &kp PLUS
   &none     &kp LEFT  &kp DOWN  &kp RIGHT &kp LBKT                        &kp RBKT  &kp N4    &kp N5    &kp N6    &kp MINUS
   &none     &kp PG_UP &kp CAPS  &kp PG_DN &kp LPAR                        &kp RPAR  &kp N1    &kp N2    &kp N3    &kp ASTRK
-                      &none     &none     &none                           &kp DEL   &kp N0    &none
+                      &none     &none     &none                           &kp DEL   &none    &kp N0
             >;
         };
 
@@ -105,8 +106,8 @@ display-name = "SYMBOL";
                                         └─────────┴─────────┴─────────┘          └─────────┴─────────┴─────────┘ */
             bindings = <
   &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                       &kp CARET &kp AMPS  &kp ASTRK &kp PIPE  &kp TILDE
-  &kp LSHFT &none     &none     &kp SQT   &none                           &none     &none     &none     &none     &none
-  &none     &none     &kp LGUI  &none     &none                           &none     &none     &none     &none     &none
+  &kp LSHFT &none     &none     &kp SQT   &none                           &none     &none     &none     &none     &kp EQUAL
+  &none     &none     &kp LGUI  &none     &none                           &none     &none     &none     &none     &kp BACKSLASH
                       &mo SYSTEM &none    &none                           &none     &none     &none
             >;
         };
@@ -147,13 +148,13 @@ display-name = "GAME";
           ├─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┤
           │  CTRL   │    A    │    S    │    D    │    F    │                    │         │         │         │         │         │
           └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┐          ┌─────────┼─────────┼─────────┼─────────┴─────────┘
-                                        │         │  SPACE  │         │          │         │         │         │
+                                        │         │  SPACE  │    B    │          │         │         │         │
                                         └─────────┴─────────┴─────────┘          └─────────┴─────────┴─────────┘ */
             bindings = <
   &kp N1    &kp N2    &kp N3    &kp N4    &sl GAMEEXP                    &none     &none     &none     &none     &to ALPHA
   &kp LSHFT &kp Q     &kp W     &kp E     &kp R                          &none     &none     &none     &none     &none
   &kp LCTRL &kp A     &kp S     &kp D     &kp F                          &none     &none     &none     &none     &none
-                      &none     &kp SPACE &none                          &none     &none     &none
+                      &none     &kp SPACE &kp B                          &none     &none     &none
             >;
         };
 
