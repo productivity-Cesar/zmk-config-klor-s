@@ -17,7 +17,6 @@
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
             tapping-term-ms = <250>;
-            require-prior-idle-ms = <100>;
             quick_tap_ms = <100>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
@@ -62,7 +61,7 @@ display-name = "ALPHA";
   &kp Q     &kp W     &kp E     &kp R     &kp T                          &kp Y     &kp U     &kp I     &kp O     &kp P
   &kp A     &kp S     &kp D   &hm LSHFT F &kp G                          &kp H   &hm RSHFT J &kp K     &kp L     &kp SEMI
   &kp Z     &kp X     &kp C     &kp V     &kp B                          &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH
-                      &kp LCTRL &mo NUMBERS &kp SPACE                    &kp RET   &mo SYMBOL &kp BSPC
+                      &kp LCTRL &sl NUMBERS &kp SPACE                    &kp RET   &sl SYMBOL &kp BSPC
             >;
         };
 
@@ -73,7 +72,7 @@ display-name = "ALPHA";
 display-name = "NUMBERS";
 // └───────────────────────────────────────────────────────────┘
 /*        ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
-          │         │         │   UP    │         │    {    │                    │    }    │    7    │    8    │    9    │    +    │
+          │         │  home   │   UP    │   end   │    {    │                    │    }    │    7    │    8    │    9    │    +    │
           ├─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┤
           │         │  LEFT   │  DOWN   │  RIGHT  │    [    │                    │    ]    │    4    │    5    │    6    │    -    │
           ├─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┤
@@ -82,7 +81,7 @@ display-name = "NUMBERS";
                                         │         │         │         │          │   DEL   │    0    │         │
                                         └─────────┴─────────┴─────────┘          └─────────┴─────────┴─────────┘ */
             bindings = <
-  &none     &none     &kp UP    &none     &kp LBRC                        &kp RBRC  &kp N7    &kp N8    &kp N9    &kp PLUS
+  &none     &kp HOME  &kp UP    &kp END     &kp LBRC                        &kp RBRC  &kp N7    &kp N8    &kp N9    &kp PLUS
   &none     &kp LEFT  &kp DOWN  &kp RIGHT &kp LBKT                        &kp RBKT  &kp N4    &kp N5    &kp N6    &kp MINUS
   &none     &kp PG_UP &kp CAPS  &kp PG_DN &kp LPAR                        &kp RPAR  &kp N1    &kp N2    &kp N3    &kp ASTRK
                       &none     &none     &none                           &kp DEL   &none    &kp N0
@@ -98,9 +97,9 @@ display-name = "SYMBOL";
 /*        ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
           │    !    │    @    │    #    │    $    │    %    │                    │    ^    │    &    │    *    │    |    │    ~    │
           ├─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┤
-          │  SHIFT  │         │         │    '    │         │                    │         │         │         │         │         │
+          │  SHIFT  │         │         │    '    │         │                    │         │         │         │         │    =    │
           ├─────────┼─────────┼─────────┼─────────┼─────────┤                    ├─────────┼─────────┼─────────┼─────────┼─────────┤
-          │         │         │ WIN/SUP │         │         │                    │         │         │         │         │         │
+          │         │         │ WIN/SUP │         │         │                    │         │         │         │         │    \    │
           └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┐          ┌─────────┼─────────┼─────────┼─────────┴─────────┘
                                         │ SYSTEM  │         │         │          │         │         │         │
                                         └─────────┴─────────┴─────────┘          └─────────┴─────────┴─────────┘ */
@@ -108,7 +107,7 @@ display-name = "SYMBOL";
   &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                       &kp CARET &kp AMPS  &kp ASTRK &kp PIPE  &kp TILDE
   &kp LSHFT &none     &none     &kp SQT   &none                           &none     &none     &none     &none     &kp EQUAL
   &none     &none     &kp LGUI  &none     &none                           &none     &none     &none     &none     &kp BACKSLASH
-                      &mo SYSTEM &none    &none                           &none     &none     &none
+                      &sl SYSTEM &none    &none                           &none     &none     &none
             >;
         };
 
